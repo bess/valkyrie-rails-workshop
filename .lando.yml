@@ -1,0 +1,5 @@
+name: valkyrie-rails
+services:
+  database:
+    type: postgres:13
+    portforward: true
