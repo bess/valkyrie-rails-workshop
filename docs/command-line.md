@@ -78,8 +78,12 @@ updated_page3 = metadata.persister.save(resource: saved_page3)
 retrieved_file = files.find_by(id: updated_page3.file_identifiers.first)
 retrieved_file.size
 retrieved_file.checksum(digests: [Digest::SHA256.new, Digest::MD5.new])
-retrieved_file.valid?(size: 55606, digests: {md5: "705fa2381c9754577e7f1a9c59c92b80"})
-retrieved_file.valid?(size: 99999, digests: {md5: "705fa2381c9754577e7f1a9c59c92b80"})
+retrieved_file.valid?(size: 55606, digests: {md5: "512662d26090afe25bd69fdf5926c2f6"})
+  => false
+retrieved_file.valid?(size: 131765, digests: {md5: "512662d26090afe25bd69fdf5926c2f6"})
+  => true
+retrieved_file.valid?(size: 131765, digests: {sha256: "a9a6ef6e55f65e276f4e591329e688bd33fc11ebbe9b3381996b8c53cf777f3f"})
+  => true
 ```
 
 ## deleting files
